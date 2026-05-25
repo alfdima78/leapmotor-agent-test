@@ -166,6 +166,22 @@
     font-size: 24px;
 }
 
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* quando chat è aperta */
+body.chat-open .chat-button {
+  display: none;
+}
+
+body.chat-open .chat-container {
+  display: block;
+}
+
 .notification-badge {
 
     position: absolute;
@@ -232,6 +248,7 @@
 
         <div class="chat-header">
             Leapmotor AI Assistant
+            <button onclick="closeChat()">✕</button>
         </div>
 
         <div class="chat-body">
@@ -251,7 +268,14 @@
 </div>
 
 <script>
+let isChatOpen = false;
+function openChat() {
+  document.body.classList.add("chat-open");
+}
 
+function closeChat() {
+  document.body.classList.remove("chat-open");
+}
 function toggleChat() {
 
     const layout = document.getElementById('layout');
