@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leapmotor AI Assistant</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 0;
+            transition: grid-template-columns 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .layout.chat-open {
+            grid-template-columns: 1fr 420px;
+        }
+
+        .website {
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-sidebar {
+            background: white;
+            border-left: 1px solid #ddd;
+            overflow: hidden;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .chat-body {
+            padding: 20px;
+        }
+
+        .open-chat-btn {
+            padding: 12px 20px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="layout" class="layout">
+
+    <div class="website">
+
+        <h1>Leapmotor Demo Website</h1>
+
+        <p>
+            Questo è un sito demo per testare Agentforce.
+        </p>
+
+        <button class="open-chat-btn" onclick="toggleChat()">
+            Open AI Assistant
+        </button>
+
+    </div>
+
+    <div class="chat-sidebar">
+
+        <div class="chat-header">
+            Leapmotor AI Assistant
+        </div>
+
+        <div class="chat-body">
+
+            Qui inserirai:
+            <ul>
+                <li>Embedded Messaging</li>
+                <li>LWC</li>
+                <li>Cards</li>
+                <li>Carousel auto</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function toggleChat() {
+
+    const layout = document.getElementById('layout');
+
+    layout.classList.toggle('chat-open');
+}
+
+</script>
+
+</body>
+</html>
