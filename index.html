@@ -57,6 +57,123 @@
             border-radius: 8px;
         }
 
+        /* FLOATING CHAT BUTTON */
+
+#chatLauncher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chat-popup {
+    background: white;
+    border-radius: 16px;
+    padding: 14px 16px;
+
+    width: 260px;
+
+    margin-bottom: 12px;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-header {
+    font-size: 12px;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 6px;
+}
+
+.popup-body {
+    font-size: 14px;
+    color: #444;
+}
+
+.close-popup {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.chat-button {
+
+    background: #0b6b1b;
+    color: white;
+
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 14px 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+    transition: all 0.25s ease;
+}
+
+.chat-button:hover {
+    transform: translateY(-2px);
+}
+
+.chat-icon-wrapper {
+    position: relative;
+    font-size: 24px;
+}
+
+.notification-badge {
+
+    position: absolute;
+
+    top: -6px;
+    right: -10px;
+
+    background: red;
+    color: white;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
     </style>
 
 </head>
@@ -110,7 +227,52 @@ function toggleChat() {
     layout.classList.toggle('chat-open');
 }
 
-</script>
+function closePopup() {
 
+    const popup = document.querySelector('.chat-popup');
+
+    if (popup) {
+        popup.style.display = 'none';
+    }
+}
+
+function toggleChat() {
+
+    const layout = document.getElementById('layout');
+
+    layout.classList.toggle('chat-open');
+}
+
+
+</script>
+<!-- Floating Chat Button -->
+<div id="chatLauncher">
+
+    <div class="chat-popup">
+        <div class="popup-header">
+            BENVENUTO 😊
+            <span class="close-popup" onclick="closePopup()">×</span>
+        </div>
+
+        <div class="popup-body">
+            Un consulente è disponibile in chat ora!
+        </div>
+    </div>
+
+    <button class="chat-button" onclick="toggleChat()">
+
+        <span>Chatta con noi</span>
+
+        <div class="chat-icon-wrapper">
+
+            <div class="notification-badge">1</div>
+
+            💬
+
+        </div>
+
+    </button>
+
+</div>
 </body>
 </html>
