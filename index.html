@@ -72,15 +72,24 @@
 }
 
 .chat-popup {
-    background: white;
-    border-radius: 16px;
+
+    background: rgba(255,255,255,0.92);
+
+    backdrop-filter: blur(16px);
+
+    border-radius: 18px;
+
     padding: 14px 16px;
 
-    width: 260px;
+    width: 270px;
 
     margin-bottom: 12px;
 
-    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    box-shadow:
+        0 8px 28px rgba(0,0,0,0.14);
+
+    border:
+        1px solid rgba(255,255,255,0.5);
 
     animation: fadeIn 0.3s ease;
 }
@@ -108,10 +117,13 @@
 
 .chat-button {
 
-    background: #0b6b1b;
+    background: rgba(20,20,20,0.92);
+
+    backdrop-filter: blur(14px);
+
     color: white;
 
-    border: none;
+    border: 1px solid rgba(255,255,255,0.08);
 
     border-radius: 999px;
 
@@ -121,14 +133,28 @@
     align-items: center;
     gap: 16px;
 
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
 
     cursor: pointer;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.22);
 
-    transition: all 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.chat-button:hover {
+
+    transform: translateY(-2px);
+
+    background: rgba(35,35,35,0.96);
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,0.28);
 }
 
 .chat-button:hover {
@@ -144,10 +170,11 @@
 
     position: absolute;
 
-    top: -6px;
-    right: -10px;
+    top: -5px;
+    right: -8px;
 
-    background: red;
+    background: #ff3b30;
+
     color: white;
 
     width: 18px;
@@ -157,9 +184,13 @@
 
     font-size: 11px;
 
+    font-weight: 600;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border: 2px solid rgba(20,20,20,0.92);
 }
 
 @keyframes fadeIn {
